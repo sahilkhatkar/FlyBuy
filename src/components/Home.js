@@ -47,16 +47,17 @@ export default function Home() {
         card.style.transform =
         "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
         // let arr = card.innerHTML.split(" ");
-        // let index = Math.abs(cards.length - 5);
+        let index = Math.abs(cards.length - 5);
         // console.log(Math.abs(cards.length - 5));
-        // wishlistArr.push(array[index]);
+        wishlistArr.push(array[index]);
         // console.log(wishlistArr)
         // let splt = arr[1].split('src=')
         // console.log(card)
         // console.log(arr[1])
         // console.log(splt[1])
         // cardUrl(splt[1])
-      } else {
+      }
+      else {
         card.style.transform =
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
       }

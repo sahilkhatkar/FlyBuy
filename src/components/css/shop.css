@@ -147,7 +147,8 @@
 	color: lightgray;
 }
 .product:hover{
-	box-shadow: 2px 2px 12px;
+	/* box-shadow: 2px 2px 12px; */
+	box-shadow: 0 4px 14px 0 rgb(0 0 0 / 20%);
 	transform: scale(1.07);
 	transition: all ease 0.3s;
 }

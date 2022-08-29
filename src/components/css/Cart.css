@@ -157,7 +157,7 @@
 	padding: .2rem 0;
 }
 .marquee {
-    border-radius: .2rem;
+    /* border-radius: .2rem; */
     background: lightgray;
     padding: .25rem;
 }

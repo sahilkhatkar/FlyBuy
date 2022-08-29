@@ -64,11 +64,12 @@ body {
   cursor: pointer;
 }
 .navbar-title {
-  font-family: "Radio Canada", sans-serif;
+  /* font-family: "Radio Canada", sans-serif; */
   font-size: 1.7rem;
-  font-weight: 600;
+  /* font-weight: 600; */
   /* color: #0d6Dfd; */
-  color: #0d6efd;
+  /* color: #0d6efd; */
+  color: seagreen;
   text-decoration: none;
   /* left: 0; */
   /* margin-left: 1rem; */
@@ -189,11 +190,14 @@ div a {
 #add2cart,
 #mob-icons-right #add2cart {
   font-size: 20px;
-  color: rgba(13, 110, 253, .7);
+  /* color: rgba(13, 110, 253, .7); */
+  /* color: rgba(13, 110, 253, .7); */
+  color: hsl(146, 50%, 40%);
 }
 #add2cart:hover,
 #mob-icons-right #add2cart:hover {
-  color: #0d6efd;
+  /* color: #0d6efd; */
+  color: hsl(146, 50%, 50%);
 }
 
 @media (max-width: 38em) {

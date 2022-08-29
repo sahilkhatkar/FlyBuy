@@ -23,7 +23,9 @@ useEffect(() => {
   }
 })
 
-
+const addProduct = () => {
+  
+}
 
   return (
     <>
@@ -68,7 +70,7 @@ useEffect(() => {
           </select>
           {/* <input type="number" value="1" min="1" max="5"/> */}
         </div>
-        <button class="AddToCart-btn">Add To Cart</button>
+        <button class="AddToCart-btn" onClick={addProduct}>Add To Cart</button>
         <h2>Product Details</h2>
         <span>- Official Product from Flybuy pvt ltd</span>
       </div>
