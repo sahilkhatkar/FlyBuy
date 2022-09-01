@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Marquee from "react-fast-marquee";
 import QtyBtn from "./QtyBtn";
 import "./css/Shop.css";
 import "./css/Cart.css";
+import data from "../data.json";
 
 export default function Cart() {
-  const removeItem = (e) => {
-    console.log(e);
-  };
+  let mrp = 0
+  let discount = 200
+  const [productArray, setProductArray] = useState([])
+  if(localStorage.getItem('localData') == null){
+    localStorage.setItem('localData',"[1, 5]")
+  }
+  
+  let a = JSON.parse(localStorage.getItem('localData'))
+
+  const removeItem = (id) => {
+    console.log(id)
+    a = a.filter(item => item !== id)
+    console.log(a)
+    for(let i = 0; i<data.length; i++){
+      if(id === data[i].id){
+
+      localStorage.setItem('localData', JSON.stringify(a))
+      }
+    }
+  }
+
+  useEffect(() => {
+
+      console.log(a)
+      console.log(data)
+    for(let i = 0; i<data.length; i++){
+      for(let j = 0; j<a.length; j++){
+
+      if(a[j] == data[i].id){
+        setProductArray(current => [...current, {id: data[i].id,name: data[i].name,price: data[i].price,imgURI: data[i].imgURI,img: data[i].img}]);
+        }
+      }
+    }
+
+  }, [setProductArray])
+  console.log(productArray)
+
+  for(let i = 0; i<productArray.length; i++){
+    mrp += productArray[i].price
+  }
 
   return (
     <>
@@ -20,35 +58,42 @@ export default function Cart() {
 
       <div className="cart-container">
         <div className="cart-product-container">
-          <div className="cart-product">
-            <div className="cart-img">
-              <img src="images/image2.jpg" alt="FlyBuy product" />
-            </div>
-            <div className="cart-product-detail">
-              <div className="product-name-delivery">
-                <h4>Product Name</h4>
-                <span>Delivery by Mon</span>
-              </div>
-              <div className="price-qty">
-                <span>Rs 299</span>
-                <QtyBtn />
-              </div>
-              <div className="cart-product-icons">
-                <span>
-                  <i className="fa-solid fa-heart" title="Save For Later"></i>
-                </span>
-                <span>
-                  <i
-                    className="fa-solid fa-trash"
-                    title="Remove"
-                    onClick={removeItem}
-                  ></i>
-                </span>
-              </div>
-            </div>
-          </div>
 
-          <div className="cart-product">
+          {
+            productArray && productArray.map( product => {
+              return(
+                <div className="cart-product" key={product.id}>
+                  <div className="cart-img">
+                    <img src={ product.img } alt="FlyBuy product" />
+                  </div>
+                  <div className="cart-product-detail">
+                    <div className="product-name-delivery">
+                      <h4>{product.name}</h4>
+                      <span>Delivery by Mon</span>
+                    </div>
+                    <div className="price-qty">
+                      <span>{product.price}</span>
+                      <QtyBtn />
+                    </div>
+                    <div className="cart-product-icons">
+                      <span>
+                        <i className="fa-solid fa-heart" title="Save For Later"></i>
+                      </span>
+                      <span>
+                        <i
+                          className="fa-solid fa-trash"
+                          title="Remove"
+                          onClick={()=>{removeItem(product.id)}}
+                        ></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>        
+              )
+            })
+          }
+
+          {/* <div className="cart-product">
             <div className="cart-img">
               <img src="images/image15.jpg" alt="FlyBuy product" />
             </div>
@@ -70,7 +115,8 @@ export default function Cart() {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
+
         </div>
 
         <section className="card-add">
@@ -83,16 +129,20 @@ export default function Cart() {
           <div className="subtotal">
             <h3>PRICE DETAILS</h3>
             <div className="more-details">
-              <span>Price (2 items)</span>
-              <span>Rs 200</span>
+              <span>Price ({productArray.length} items)</span>
+              <span>{mrp}</span>
             </div>
             <div className="more-details">
               <span>Discount</span>
-              <span>- Rs 200</span>
+              <span>- {discount}</span>
             </div>
             <div className="more-details">
               <span>Shipping</span>
               <span>FREE</span>
+            </div>
+            <div className="more-details">
+              <span><strong>Total</strong></span>
+              <span><strong>{mrp-discount}</strong></span>
             </div>
             <button>Proceed to checkout</button>
           </div>

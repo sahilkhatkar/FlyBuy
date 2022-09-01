@@ -72,7 +72,7 @@
 	/* justify-content: center; */
 	align-items: center;
 	text-align: center;
-	cursor: pointer;
+	/* cursor: pointer; */
 	/* border: 1px solid rgba(0, 0, 0, .1); */
 	/* flex-grow: 1; */
 	/* flex: 1 0 calc(25% - 10px); */
@@ -87,6 +87,7 @@
 .img-box{
 	/* height: 210px; */
 	height: 70%;
+	cursor: pointer;
 	/* max-width: 10rem; */
 }
 .img-box::after {

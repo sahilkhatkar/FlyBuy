@@ -6,7 +6,11 @@ import Alert from "./Alert";
 import Carousel from "./Carousel";
 
 export const array = [];
-export const wishlistArr = [];
+// export const wishlistArr = [];
+// localStorage.setItem('wishlistArr',"[]")
+if(localStorage.getItem('wishlistArr') == null){
+  localStorage.setItem('wishlistArr',"[]")
+}
 
 export default function Home() {
   useEffect(() => {
@@ -46,16 +50,12 @@ export default function Home() {
       else if (love==='accept') {
         card.style.transform =
         "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
-        // let arr = card.innerHTML.split(" ");
+
         let index = Math.abs(cards.length - 5);
-        // console.log(Math.abs(cards.length - 5));
-        wishlistArr.push(array[index]);
-        // console.log(wishlistArr)
-        // let splt = arr[1].split('src=')
-        // console.log(card)
-        // console.log(arr[1])
-        // console.log(splt[1])
-        // cardUrl(splt[1])
+        let wishItem = JSON.parse(localStorage.getItem('wishlistArr'))
+        wishItem.push(array[index]);
+
+        localStorage.setItem('wishlistArr', JSON.stringify(wishItem))
       }
       else {
         card.style.transform =
@@ -244,10 +244,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="Home__feature-products">
+      {/* <div className="Home__feature-products">
         <h1>Feature Products</h1>
         <Carousel/>
-      </div>
+      </div> */}
     </>
   );
 }

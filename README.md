@@ -54,7 +54,7 @@ Here is the link
 ![Home Page](https://raw.githubusercontent.com/sahilkhatkar/FlyBuy/master/public/images/Shop.png)
 
 ### Cart
-![Home Page](https://raw.githubusercontent.com/sahilkhatkar/FlyBuy/master/public/images/Cart.png)
+![Home Page](https://raw.githubusercontent.com/sahilkhatkar/FlyBuy/master/public/images/Cart-ss.png)
 
 ## 🛠 Tech Skill(s) Used
 

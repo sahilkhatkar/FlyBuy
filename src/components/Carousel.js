@@ -75,8 +75,8 @@ const [viewCard, setViewCard] = useState(5)
           data && data.map((product) => {
             return (
             <SwiperSlide className="slides" key={product.id}>
-            <div className="product" target="_blank" onClick={()=>{goTo(product)}}>
-              <div className="img-box">
+            <div className="product">
+              <div className="img-box" target="_blank" onClick={()=>{goTo(product)}}>
                 <img src={product.img} alt={product.id} />
               </div>
               <p className="detail">

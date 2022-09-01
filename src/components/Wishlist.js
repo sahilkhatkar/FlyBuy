@@ -1,18 +1,22 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/Wishlist.css";
 import Footer from "./Footer";
-import { wishlistArr } from "./Home";
+// import { wishlistArr } from "./Home";
 
 export default function Wishlist() {
   let navigate = useNavigate();
 
+  let wishlistArr = JSON.parse(localStorage.getItem('wishlistArr'))
+  console.log(wishlistArr)
+
   useEffect(() => {
+
     const list = document.querySelector(".card-container");
-    for (let i = 0; i < wishlistArr.length; i++) {
-      console.log(wishlistArr[i]);
-      list.innerHTML += "<div className='card'><img src=" + wishlistArr[i] + "alt='unsplash-picture' style='width: 15rem; height: 20rem; object-fit: cover;'/></div>";
-    }
+    // for (let i = 0; i < wishlistArr.length; i++) {
+    //   console.log(wishlistArr[i]);
+    //   list.innerHTML += "<div className='card'><img src=" + wishlistArr[i] + "alt='unsplash-picture' style='width: 15rem; height: 20rem; object-fit: cover;'/></div>";
+    // }
   }, []);
 
   if(wishlistArr.length===0){
@@ -54,6 +58,25 @@ export default function Wishlist() {
           Add more items
         </button>
         <div className="card-container">
+          {
+            wishlistArr && wishlistArr.map( item => {
+              return(
+                <>
+                <div className="product" target="_blank">
+              <div className="img-box">
+                <img src={item} alt={item} />
+              </div>
+              <p className="detail">
+                {}<p className="price">&#8377; {}/-</p>
+              </p>
+              <div className="cart">
+                <Link to="">Add to Cart</Link>
+              </div>
+            </div>
+                </>
+              )
+            })
+          }
         </div>
       </div>
 

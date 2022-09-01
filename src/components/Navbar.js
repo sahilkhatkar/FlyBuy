@@ -4,6 +4,7 @@ import LogoutButton from "./LogoutButton";
 import LoginButton from "./LoginButton";
 import { Profile } from "./Profile";
 import "./css/Navbar.css";
+import Cart from "./Cart";
 
 export default function Navbar() {
   const toggleNavbar = () => {
@@ -79,22 +80,18 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/cart" title="Add to Cart" id="add2cart" onClick={navClick}>
-            <i className="fa-solid fa-cart-shopping"></i>
+            {/* <i className="fa-solid fa-cart-shopping"></i> */}
+            <img id="cart-img" src="./images/shopping-cart.png" alt="cart-img"/>
           </Link>
         </li>
       </ul>
-
-      {/* <div className="mob-items"> */}
-        {/* <Link to="/wishlist" title="Wishlist" onClick={navClick}>
-          <i className="fa-solid fa-heart"></i>
-        </Link> */}
         
         <div id="mob-icons-right">
           <Link to="/wishlist" title="Wishlist" id="wishlist">
             <i className="fa-solid fa-heart"></i>
           </Link>
           <Link to="/cart" title="Add to Cart" id="add2cart">
-            <i className="fa-solid fa-cart-shopping"></i>
+            <img id="cart-img" src="./images/shopping-cart.png" alt="cart-img"/>
           </Link>
         </div>
       {/* </div> */}
