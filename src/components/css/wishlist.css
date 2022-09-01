@@ -124,11 +124,16 @@
 
 
 .card-container {
-  border: 2px solid black;
+  margin: 1rem 0;
+  /* border: 2px solid black; */
   border-radius: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.card-container > .product {
+  margin: 3rem 2rem;
 }
 
 .card {

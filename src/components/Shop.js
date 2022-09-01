@@ -76,6 +76,16 @@ export default function Shop() {
       </div>
 
       <Carousel/>
+
+      <center style={{margin: "2rem 0 0 0 "}}>
+        <h2>Jewellery & Accessories</h2>
+        <p>Traditional Collection New Modern Design</p>
+      </center>
+      <div id="feature">
+        {/* <FeatureProduct/> */}
+        <Carousel/>
+      </div>
+
       {/* <section id="feature">
         <div className="product" onClick={goTo}>
           <div className="img-box">

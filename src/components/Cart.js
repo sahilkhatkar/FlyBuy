@@ -11,11 +11,17 @@ export default function Cart() {
   let mrp = 0
   let discount = 200
   const [productArray, setProductArray] = useState([])
-  if(localStorage.getItem('localData') == null){
-    localStorage.setItem('localData',"[1, 5]")
+
+  let a = JSON.parse(localStorage.getItem('localData'))
+  let uniqueChars = a.filter((c, index) => {
+    return a.indexOf(c) === index;
+});
+localStorage.setItem('localData', JSON.stringify(uniqueChars))
+  
+  if(JSON.parse(localStorage.getItem('localData')).length === 0){
+    localStorage.setItem('localData',"[1, 5, 2]")
   }
   
-  let a = JSON.parse(localStorage.getItem('localData'))
 
   const removeItem = (id) => {
     console.log(id)
@@ -23,10 +29,10 @@ export default function Cart() {
     console.log(a)
     for(let i = 0; i<data.length; i++){
       if(id === data[i].id){
-
       localStorage.setItem('localData', JSON.stringify(a))
       }
     }
+    window.location.reload()
   }
 
   useEffect(() => {

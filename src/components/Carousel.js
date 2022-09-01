@@ -16,7 +16,7 @@ const [viewCard, setViewCard] = useState(5)
   const [screenSize, setScreenSize] = useState(document.body.clientWidth.target);
   useEffect(() => {
     window.addEventListener('resize', setScreenSize);
-  console.log(screenSize)
+  // console.log(screenSize)
 
   if(document.body.clientWidth >= 1520)
     {setViewCard(5)}
@@ -67,8 +67,8 @@ const [viewCard, setViewCard] = useState(5)
         navigation
         pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         <div>
         {
@@ -82,7 +82,7 @@ const [viewCard, setViewCard] = useState(5)
               <p className="detail">
                 {product.name}<p className="price">&#8377; {product.price}/-</p>
               </p>
-              <div className="cart">
+              <div className="cart" onClick={()=>{console.log("clickedddd")}}>
                 <Link to="">Add to Cart</Link>
               </div>
             </div>

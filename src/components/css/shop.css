@@ -103,6 +103,7 @@
 .img-box img{
 	max-width: 100%;
 	max-height: 100%;
+	/* border-radius: 1rem; */
 }
 .time{
 	/* position: absolute; */
@@ -145,7 +146,8 @@
 	background-color: darkgreen;
 }
 .cart a{
-	color: lightgray;
+	width: 100%;
+	color: whitesmoke;
 }
 .product:hover{
 	/* box-shadow: 2px 2px 12px; */

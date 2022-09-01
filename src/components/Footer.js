@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>online shop</h4>
             <ul>
-              <li><a href="#">watch</a></li>
+              <li><a href="#">jewellery & accessories</a></li>
               <li><a href="#">bag</a></li>
               <li><a href="#">shoes</a></li>
               <li><a href="#">dress</a></li>

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "White T-shirt",
+        "price": 349,
+        "img": ""
+    },
+    {
+        "id": 2,
+        "name": "White T-shirt",
+        "price": 299,
+        "imgURI": "https://unsplash.com/photos/GREEBEtyR9Y",
+        "img": "https://images.unsplash.com/photo-1627225924765-552d49cf47ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+    },
+    {
+        "id": 3,
+        "name": "Black T-shirt",
+        "price": 399,
+        "imgURI": "https://unsplash.com/photos/NMYG69BG_Jg",
+        "img": "https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+    },
+    {
+        "id": 4,
+        "name": "Jeans",
+        "price": 899,
+        "imgURI": "https://unsplash.com/photos/SrqCf0SBaS8",
+        "img": "https://images.unsplash.com/photo-1511105043137-7e66f28270e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+    },
+    {
+        "id": 5,
+        "name": "Shoes",
+        "price": 499,
+        "imgURI": "https://unsplash.com/photos/dwKiHoqqxk8",
+        "img": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80"
+    },
+    {
+        "id": 6,
+        "name": "Sneakers",
+        "price": 699,
+        "imgURI": "https://unsplash.com/photos/SxAXphIPWeg",
+        "img": "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
+    },
+    {
+        "id": 7,
+        "name": "Sandals",
+        "price": 499,
+        "imgURI": "https://unsplash.com/photos/87DgFV9SOc4",
+        "img": "https://images.unsplash.com/photo-1518049362265-d5b2a6467637?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=449&q=80"
+    }
+]
