@@ -38,6 +38,20 @@ const [viewCard, setViewCard] = useState(5)
     })
   }, [screenSize])
 
+  const addProduct = (product) => {
+
+    let id = product.id
+    console.log(id)
+  
+    if(JSON.parse(localStorage.getItem('localData')).length === 0){
+      localStorage.setItem('localData',"[]")
+    }
+    id = parseInt(id)
+    let a = JSON.parse(localStorage.getItem('localData'))
+    a.push(id)
+    console.log(a)
+    localStorage.setItem('localData', JSON.stringify(a))
+  }
 
   let navigate = useNavigate()
 
@@ -87,7 +101,7 @@ const [viewCard, setViewCard] = useState(5)
               <p className="detail">
                 {product.name}<p className="price">&#8377; {product.price}/-</p>
               </p>
-              <div className="cart" onClick={()=>{console.log("clickedddd")}}>
+              <div className="cart" onClick={()=>{addProduct(product)}}>
                 <Link to="">Add to Cart</Link>
               </div>
             </div>
@@ -122,7 +136,7 @@ if(data==="bags"){
             <p className="detail">
               {product.name}<p className="price">&#8377; {product.price}/-</p>
             </p>
-            <div className="cart" onClick={()=>{console.log("clickedddd")}}>
+            <div className="cart" onClick={()=>{addProduct(product)}}>
               <Link to="">Add to Cart</Link>
             </div>
           </div>
@@ -157,7 +171,7 @@ if(data==="jewellery"){
             <p className="detail">
               {product.name}<p className="price">&#8377; {product.price}/-</p>
             </p>
-            <div className="cart" onClick={()=>{console.log("clickedddd")}}>
+            <div className="cart" onClick={()=>{addProduct(product)}}>
               <Link to="">Add to Cart</Link>
             </div>
           </div>

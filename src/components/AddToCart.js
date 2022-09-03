@@ -52,11 +52,11 @@ useEffect(() => {
 
 const addProduct = (id) => {
 
-  console.log(id)
+  // console.log(id)
 
-  // if(JSON.parse(localStorage.getItem('localData')).length === 0){
-  //   localStorage.setItem('localData',"[10001, 20003, 30002]")
-  // }
+  if(JSON.parse(localStorage.getItem('localData')).length === 0){
+    localStorage.setItem('localData',"[]")
+  }
   id = parseInt(id)
   let a = JSON.parse(localStorage.getItem('localData'))
   a.push(id)

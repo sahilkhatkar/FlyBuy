@@ -3,7 +3,6 @@ import "./css/Home.css";
 import "./css/Spinner.css";
 import Spinner from "./Spinner";
 import Alert from "./Alert";
-import Carousel from "./Carousel";
 
 export const array = [];
 // export const wishlistArr = [];
@@ -79,23 +78,23 @@ export default function Home() {
 
   async function fetchUrl() {
     let imgResponse = await fetch(
-      "https://source.unsplash.com/355x300/?electronics,laptops"
+      "https://source.unsplash.com/355x300/?women,dress"
     );
     array.push(imgResponse.url);
     imgResponse = await fetch(
-      "https://source.unsplash.com/355x300/?electronics,accessories"
+      "https://source.unsplash.com/355x300/?women,bags"
     );
     array.push(imgResponse.url);
     imgResponse = await fetch(
-      "https://source.unsplash.com/355x300/?electronics,headphones"
+      "https://source.unsplash.com/355x300/?women,jewellery"
     );
     array.push(imgResponse.url);
     imgResponse = await fetch(
-      "https://source.unsplash.com/355x300/?electronics,mobile"
+      "https://source.unsplash.com/355x300/?women,necklace"
     );
     array.push(imgResponse.url);
     imgResponse = await fetch(
-      "https://source.unsplash.com/355x300/?electronics,pc"
+      "https://source.unsplash.com/355x300/?women,clothes"
     );
     array.push(imgResponse.url);
     // console.log(array[0])

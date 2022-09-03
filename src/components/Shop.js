@@ -19,20 +19,6 @@ export default function Shop() {
     // window.open(window.location.origin + "/addtocart", '_blank');
 
     navigate("/addtocart")
-    // prints the object
-    // console.log(e)
-
-    // prints the element array of current image clicked
-    // console.log(e.nativeEvent.path)
-
-    // Name of the product
-    // console.log(e.nativeEvent.path[2].childNodes[2].childNodes[0].data)
-
-    // Price of the product
-    // console.log(e.nativeEvent.path[2].childNodes[2].childNodes[1].childNodes[0].data.split(' ')[2])
-
-    // Prints the image source
-    // console.log(e.target.currentSrc)
   };
 
   return (
@@ -63,7 +49,7 @@ export default function Shop() {
       </section>
 
       <center>
-        <h2>New Arrivals</h2>
+        <h2>Dress collection</h2>
         <p>Summer Collection New Modern Design</p>
       </center>
       <section id="feature">

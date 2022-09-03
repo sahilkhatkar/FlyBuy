@@ -7,8 +7,19 @@ import "./css/Shop.css";
 import "./css/Cart.css";
 
 import allProducts from "../all-products.json";
+import coupon from "../coupons.json";
 
 export default function Cart() {
+
+  // Date set-Up
+
+  let dt = new Date()
+  dt.setDate(dt.getDate() + 3)
+  let deliveryDate = JSON.stringify(dt.toDateString()).split(" ")
+  deliveryDate[0] = deliveryDate[0].split('"')
+
+  // Setting Up MRP, discount
+
   let mrp = 0;
   let discount = 20;
   const [productArray, setProductArray] = useState([]);
@@ -31,11 +42,15 @@ export default function Cart() {
         localStorage.setItem("localData", JSON.stringify(a));
       }
     }
-    window.location.reload()
+    for (let i =0;i<productArray.length; i++){
+      if(productArray[i].id === id)
+      setProductArray(productArray.splice(i,1))
+    }
+    console.log(productArray)
   };
 
   useEffect(() => {
-    console.log(a);
+    // console.log(a);
     for (let i = 0; i < allProducts.length; i++) {
       for (let j = 0; j < a.length; j++) {
         if (a[j] == allProducts[i].id) {
@@ -51,7 +66,8 @@ export default function Cart() {
         }
       }
     }
-  }, [setProductArray]);
+    console.log(productArray);
+  }, []);
   console.log(productArray);
 
   for (let i = 0; i < productArray.length; i++) {
@@ -60,14 +76,33 @@ export default function Cart() {
 
   const goTo = (product) => {
     navigate(`/addtocart/${product.id}`)
-    // console.log(product.id)
-};
+}
 
   let shipping = 150;
   if (mrp >= 1000) shipping = 0;
 
+  // Applying Coupon
+
+  const [couponName, setCouponName] = useState('')
+  const [couponPrice, setCouponPrice] = useState(null)
+
+  function getVal() {
+    const val = document.querySelector('#applyCoupon').value.toUpperCase()
+
+    for(let i = 0; i < coupon.length; i++){
+      if(coupon[i].coupon === val){
+        console.log("coupon applied")
+        setCouponName(coupon[i].coupon)
+        setCouponPrice(coupon[i].price)
+        const btn = document.getElementById('apply-btn');
+        btn.style.backgroundColor = "hsl(146, 50%, 60%)"
+        btn.textContent = "Applied"
+      }
+    }
+  }
+
   if(JSON.parse(localStorage.getItem('localData')).length === 0){
-    // localStorage.setItem('localData',"[10001, 20003, 30002]")
+    localStorage.setItem('localData',"[]")
 
     return (
       <>
@@ -122,7 +157,7 @@ export default function Cart() {
                   <div className="cart-product-detail">
                     <div className="product-name-delivery">
                       <h4>{product.name}</h4>
-                      <span>Delivery by Mon</span>
+                      <span>Delivery by {deliveryDate[0]} {deliveryDate[2]}, {deliveryDate[1]}</span>
                     </div>
                     <div className="price-qty">
                       <span>{product.price}</span>
@@ -133,12 +168,14 @@ export default function Cart() {
                         <i
                           className="fa-solid fa-heart"
                           title="Save For Later"
+                          style={{color: "seagreen"}}
                         ></i>
                       </span>
                       <span>
                         <i
                           className="fa-solid fa-trash"
                           title="Remove"
+                          style={{color: "hsl(0, 75%, 50%)"}}
                           onClick={() => {
                             removeItem(product.id);
                           }}
@@ -154,8 +191,11 @@ export default function Cart() {
         <section className="card-add">
           <div id="coupon">
             <h2>Apply Coupon</h2>
-            <input type="text" placeholder="Enter Coupon here" />
-            <button>Apply</button>
+            <input type="text" id="applyCoupon" style={{textTransform: "Uppercase"}} placeholder="Enter Coupon here" onBlur={getVal}/>
+            <div id="apply-the-coupon">
+              <button id="apply-btn">Apply</button>
+              <span>{couponName} {couponPrice} %</span>
+            </div>
           </div>
 
           <div className="subtotal">

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./css/Footer.css";
 
 export default function Footer() {
@@ -22,38 +23,38 @@ export default function Footer() {
           <div className="footer-col">
             <h4>company</h4>
             <ul>
-              <li><a href="#">about us</a></li>
-              <li><a href="#">our services</a></li>
-              <li><a href="#">privacy policy</a></li>
-              <li><a href="#">affiliate program</a></li>
+              <li><Link to="/about">about us</Link></li>
+              <li><Link to="#">our services</Link></li>
+              <li><Link to="#">privacy policy</Link></li>
+              <li><Link to="#">affiliate program</Link></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>get help</h4>
             <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">shipping</a></li>
-              <li><a href="#">returns</a></li>
-              <li><a href="#">order status</a></li>
-              <li><a href="#">payment options</a></li>
+              <li><Link to="#">FAQ</Link></li>
+              <li><Link to="#">shipping</Link></li>
+              <li><Link to="#">returns</Link></li>
+              <li><Link to="/cart">order status</Link></li>
+              <li><Link to="#">payment options</Link></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>online shop</h4>
             <ul>
-              <li><a href="#">jewellery & accessories</a></li>
-              <li><a href="#">bag</a></li>
-              <li><a href="#">shoes</a></li>
-              <li><a href="#">dress</a></li>
+              <li><Link to="/shop">jewellery & accessories</Link></li>
+              <li><Link to="/shop">bag</Link></li>
+              <li><Link to="/shop">dress</Link></li>
+              <li><Link to="/shop">footwear</Link></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>follow us</h4>
             <div className="social-links">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-twitter"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-linkedin-in"></i></a>
+              <Link to="#"><i className="fab fa-facebook-f"></i></Link>
+              <Link to="#"><i className="fab fa-twitter"></i></Link>
+              <Link to="#"><i className="fab fa-instagram"></i></Link>
+              <Link to="#"><i className="fab fa-linkedin-in"></i></Link>
             </div>
           </div>
         </div>
