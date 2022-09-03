@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import data from "../data.json";
+import productData from "../data.json";
+import dress from "../dress-data.json";
+import bags from "../bags-data.json";
+import jewellery from "../jewellery-data.json";
 import "./css/Carousel.css";
 import './css/Shop.css'
 
@@ -11,9 +14,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function Carousel() {
+export default function Carousel(props) {
 const [viewCard, setViewCard] = useState(5)
   const [screenSize, setScreenSize] = useState(document.body.clientWidth.target);
+  const data = props.data
   useEffect(() => {
     window.addEventListener('resize', setScreenSize);
   // console.log(screenSize)
@@ -51,7 +55,8 @@ const [viewCard, setViewCard] = useState(5)
 //      console.log(data)
 // }
 
-  return (
+  if(data==="dress"){
+    return (
     <>
     {/* This is used to check the width of the client machine */}
     {/* <div><center>Width: `${document.body.clientWidth}`</center></div> */}
@@ -72,7 +77,7 @@ const [viewCard, setViewCard] = useState(5)
       >
         <div>
         {
-          data && data.map((product) => {
+          dress && dress.map((product) => {
             return (
             <SwiperSlide className="slides" key={product.id}>
             <div className="product">
@@ -93,4 +98,76 @@ const [viewCard, setViewCard] = useState(5)
       </Swiper>
     </>
   );
+}
+if(data==="bags"){
+  return (
+  <>
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+      spaceBetween={1}
+      slidesPerView={viewCard}
+      loop={true}
+      navigation
+      pagination={{ clickable: true }}
+    >
+      <div>
+      {
+        bags && bags.map((product) => {
+          return (
+          <SwiperSlide className="slides" key={product.id}>
+          <div className="product">
+            <div className="img-box" target="_blank" onClick={()=>{goTo(product)}}>
+              <img src={product.img} alt={product.id} />
+            </div>
+            <p className="detail">
+              {product.name}<p className="price">&#8377; {product.price}/-</p>
+            </p>
+            <div className="cart" onClick={()=>{console.log("clickedddd")}}>
+              <Link to="">Add to Cart</Link>
+            </div>
+          </div>
+      </SwiperSlide>
+        );
+      })}
+      </div>
+    </Swiper>
+  </>
+);
+}
+if(data==="jewellery"){
+  return (
+  <>
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+      spaceBetween={1}
+      slidesPerView={viewCard}
+      loop={true}
+      navigation
+      pagination={{ clickable: true }}
+    >
+      <div>
+      {
+        jewellery && jewellery.map((product) => {
+          return (
+          <SwiperSlide className="slides" key={product.id}>
+          <div className="product">
+            <div className="img-box" target="_blank" onClick={()=>{goTo(product)}}>
+              <img src={product.img} alt={product.id} />
+            </div>
+            <p className="detail">
+              {product.name}<p className="price">&#8377; {product.price}/-</p>
+            </p>
+            <div className="cart" onClick={()=>{console.log("clickedddd")}}>
+              <Link to="">Add to Cart</Link>
+            </div>
+          </div>
+      </SwiperSlide>
+        );
+      })}
+      </div>
+    </Swiper>
+  </>
+);
+}
+
 }

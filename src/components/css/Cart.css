@@ -54,6 +54,9 @@
   align-items: center;
   justify-content: center;
 }
+.cart-img > img{
+  cursor: pointer;
+}
 .cart-product img {
   /* height: 10rem; */
   max-width: 100%;

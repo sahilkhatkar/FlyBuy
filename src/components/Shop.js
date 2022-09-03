@@ -51,7 +51,7 @@ export default function Shop() {
       </center>
       <div id="feature">
         {/* <FeatureProduct/> */}
-        <Carousel/>
+        <Carousel data="dress"/>
       </div>
 
       <section className="banner">
@@ -67,7 +67,7 @@ export default function Shop() {
         <p>Summer Collection New Modern Design</p>
       </center>
       <section id="feature">
-        <Carousel/>
+        <Carousel data="dress"/>
       </section>
 
       <div className="bag-collection-container">
@@ -75,15 +75,15 @@ export default function Shop() {
         <p>Bag Collection New Modren Design</p>
       </div>
 
-      <Carousel/>
+      <Carousel data="bags"/>
 
-      <center style={{margin: "2rem 0 0 0 "}}>
+      <center style={{margin: "2rem 0 0 0"}}>
         <h2>Jewellery & Accessories</h2>
         <p>Traditional Collection New Modern Design</p>
       </center>
       <div id="feature">
         {/* <FeatureProduct/> */}
-        <Carousel/>
+        <Carousel data="jewellery"/>
       </div>
 
       {/* <section id="feature">
