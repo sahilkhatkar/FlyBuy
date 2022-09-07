@@ -45,6 +45,7 @@ export default function Cart() {
     for (let i =0;i<productArray.length; i++){
       if(productArray[i].id === id)
       setProductArray(productArray.splice(i,1))
+      window.location.reload(true)
     }
     console.log(productArray)
   };
@@ -67,7 +68,7 @@ export default function Cart() {
       }
     }
     console.log(productArray);
-  }, []);
+  }, [setProductArray]);
   console.log(productArray);
 
   for (let i = 0; i < productArray.length; i++) {
